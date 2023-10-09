@@ -15,15 +15,23 @@ def load_vars(task):
     task.host["vars"] = host_data.result
 
 
+
 def generate_config(task):
-    ospf_template = task.run(task=template_file, template="ospf.j2", path="./templates")
+    ospf_template = task.run(task=template_file, template="ospfcisco.j2", path="./templates")
     ospf_result = ospf_template.result
     ospf_config = ospf_result.splitlines()
     task.run(task=netmiko_send_config, config_commands=ospf_config)
 
 
-juniper_nr = nr.filter(platform="juniper_junos")
-load_results = juniper_nr.run(task=load_vars)
-config_results = juniper_nr.run(task=generate_config)
+# juniper_nr = nr.filter(platform="juniper_junos")
+# load_results = juniper_nr.run(task=load_vars)
+# config_results = juniper_nr.run(task=generate_config)
+# print_result(load_results)
+# print_result(config_results)
+
+cisco_nr = nr.filter(platform="cisco_ios")
+load_results = cisco_nr.run(task=load_vars)
+config_results = cisco_nr.run(task=generate_config)
 print_result(load_results)
 print_result(config_results)
+
