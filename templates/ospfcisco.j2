@@ -1,5 +1,7 @@
 {% if host.vars.OSPF is defined %}
-no router ospf {{ line["pid"] }}
+{% for line in host.vars.OSPF %}
+no router ospf {{ line["pid"] }}  
+{% endfor %}
 {% for line in host.vars.OSPF %}
 router ospf {{ line["pid"] }} 
 interface {{ line["interface"] }}
