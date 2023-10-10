@@ -18,8 +18,6 @@ csr63:
     - cisco_group
   data:
     device_name: "csr63"
-
-
 csr23:
   hostname: 192.168.2.90
   platform: "cisco_ios"
@@ -29,8 +27,6 @@ csr23:
     - cisco_group
   data:
     device_name: "csr23"
-
-
 # Switch:
 #   hostname: 192.168.2.92
 #   platform: "cisco_ios"
