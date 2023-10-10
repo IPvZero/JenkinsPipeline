@@ -9,8 +9,6 @@
 #     - cisco_group
 #   data:
 #     device_name: "CSR1"
-
-
 csr63:
   hostname: 192.168.2.89
   platform: "cisco_ios"
